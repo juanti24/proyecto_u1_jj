@@ -11,7 +11,6 @@ public class CitaMedica2 {
 	//3)DI por metodos set
 	private Doctor doctor; // a su metodo Set le pongo @Autowired
 	private Paciente paciente; // a su metodo Set le pongo @Autowired
-	
 	private LocalDateTime fechaCita;
 
 	public String agendar(LocalDateTime fechaCita, String nombre, String apellido, int edad, String ciudad,
@@ -20,7 +19,6 @@ public class CitaMedica2 {
 		this.doctor.setNombre(nombre);
 		this.doctor.setApellido(apellido);
 		this.doctor.setEdad(edad);
-		
 		this.doctor.setCiudad(ciudad);
 
 		this.paciente.setEdad(edadPaciente);

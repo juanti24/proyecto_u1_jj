@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 
 //les voy a poner una metadata
 @Component
-
 public class Doctor {
 	
 	private String nombre;

@@ -23,7 +23,6 @@ public class CitaMedica {
 		this.doctor.setNombre(nombre);
 		this.doctor.setApellido(apellido);
 		this.doctor.setEdad(edad);
-		;
 		this.doctor.setCiudad(ciudad);
 
 		this.paciente.setEdad(edadPaciente);
