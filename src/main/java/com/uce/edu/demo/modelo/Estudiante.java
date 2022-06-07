@@ -5,7 +5,7 @@ public class Estudiante {
 	private String nombre;
 	private String apellido;
 	private String cedula;
-	
+
 	private Materia materia;
 
 	// SET Y GET
@@ -35,9 +35,8 @@ public class Estudiante {
 
 	@Override
 	public String toString() {
-		return "Estudiante [nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", getNombre()="
-				+ getNombre() + ", getApellido()=" + getApellido() + ", getCedula()=" + getCedula() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+		return "Estudiante [nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", materia=" + materia
+				+ "]";
 	}
 
 }
