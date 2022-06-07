@@ -5,7 +5,6 @@ import com.uce.edu.demo.modelo.Estudiante;
 public interface IEstudianteService {
 
 	
-	
 		public void ingresarEstudiante(Estudiante e);
 		
 		
