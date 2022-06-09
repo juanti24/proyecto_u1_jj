@@ -7,43 +7,67 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uce.edu.demo.banco.modelo.CuentaBancaria;
+import com.uce.edu.demo.banco.modelo.Deposito;
 import com.uce.edu.demo.banco.modelo.Transferencia;
 import com.uce.edu.demo.banco.repository.ITransferenciaRepository;
 
 @Service
 public class TransferenciaServiceImpl implements ITransferenciaService {
 
-	//Como la logica de CuentaBancariaSerivice no hace nada
-	//Si puedo Inyectar el CuentaBancariaRespository
-	
+	// Como la logica de CuentaBancariaSerivice no hace nada
+	// Si puedo Inyectar el CuentaBancariaRespository
+
 	@Autowired
 	private ICuentaBancariaService bancariaService;
 	@Autowired
-	private ITransferenciaRepository iTransferenciaRepositorye;
-	
+	private ITransferenciaRepository transferenciaRepository;
+
 	@Override
 	public void realizarTransferencia(String ctaOrigen, String ctaDestino, BigDecimal monto) {
 		// TODO Auto-generated method stub
-	CuentaBancaria cOrigen = this.bancariaService.buscar(ctaOrigen);	
-	BigDecimal saldoOrigen = cOrigen.getSaldo();	
-	BigDecimal nuevoSaldoOrigen = saldoOrigen.subtract(monto);
-	cOrigen.setSaldo(nuevoSaldoOrigen);
-	this.bancariaService.actualizar(cOrigen);
+		CuentaBancaria cOrigen = this.bancariaService.buscar(ctaOrigen);
+		BigDecimal saldoOrigen = cOrigen.getSaldo();
+		BigDecimal nuevoSaldoOrigen = saldoOrigen.subtract(monto);
+		cOrigen.setSaldo(nuevoSaldoOrigen);
+		this.bancariaService.actualizarCuenta(cOrigen);
+
+		CuentaBancaria cDestino = this.bancariaService.buscar(ctaDestino);
+		BigDecimal saldoDestino = cDestino.getSaldo();
+		BigDecimal nuevoSaldoDestino = saldoDestino.add(monto);
+		cDestino.setSaldo(nuevoSaldoDestino);
+		this.bancariaService.actualizarCuenta(cDestino);
+
+		Transferencia t = new Transferencia();
+		t.setNumeroCuentaOrigen(ctaOrigen);
+		t.setNumeroCuentaDestino(ctaDestino);
+		t.setMontoTransferir(monto);
+		t.setFechaTransferencia(LocalDateTime.now());
+
+		this.transferenciaRepository.insertar(t);
+
+	}
+
+	@Override
+	public Transferencia buscarTransferencia(String numeroCtaDestino) {
+		// TODO Auto-generated method stub
+		return this.transferenciaRepository.buscar(numeroCtaDestino);
+	}
+
+	@Override
+	public void borrarTransferencia(String numeroCtaDestino) {
+		// TODO Auto-generated method stub
+		this.transferenciaRepository.eliminar(numeroCtaDestino);
+	}
+
+	@Override
+	public void actualizarTransferencia(String ctaOrigen, String ctaDestino, BigDecimal monto) {
 	
-	CuentaBancaria cDestino = this.bancariaService.buscar(ctaDestino);
-	BigDecimal saldoDestino = cDestino.getSaldo();
-	BigDecimal nuevoSaldoDestino = saldoDestino.add(monto);
-	cDestino.setSaldo(nuevoSaldoDestino);
-	this.bancariaService.actualizar(cDestino);
-	
-	Transferencia t = new Transferencia();
-	t.setNumeroCuentaOrigen(ctaOrigen);
-	t.setNumeroCuentaDestino(ctaDestino);
-	t.setMontoTransferir(monto);
-	t.setFechaTransferencia(LocalDateTime.now());
-	
-	this.iTransferenciaRepositorye.insertar(t);
-	
+		Transferencia t = new Transferencia();
+		t.setNumeroCuentaOrigen(ctaOrigen);
+		t.setNumeroCuentaDestino(ctaDestino);
+		t.setMontoTransferir(monto);
+		t.setFechaTransferencia(LocalDateTime.now());
+		this.transferenciaRepository.actualizar(t);
 	}
 
 }

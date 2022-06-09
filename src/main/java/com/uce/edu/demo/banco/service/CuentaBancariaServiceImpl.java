@@ -6,13 +6,13 @@ import com.uce.edu.demo.banco.modelo.CuentaBancaria;
 import com.uce.edu.demo.banco.repository.ICuentaBancariaRepository;
 
 @Service
-public class CuentaBancariaServerImpl implements ICuentaBancariaService {
+public class CuentaBancariaServiceImpl implements ICuentaBancariaService {
 
 	@Autowired
 	private ICuentaBancariaRepository bancariaRepository;
-	
+
 	@Override
-	public void actualizar(CuentaBancaria c) {
+	public void actualizarCuenta(CuentaBancaria c) {
 		this.bancariaRepository.actualizar(c);
 	}
 
@@ -20,6 +20,18 @@ public class CuentaBancariaServerImpl implements ICuentaBancariaService {
 	public CuentaBancaria buscar(String numero) {
 		// TODO Auto-generated method stub
 		return this.bancariaRepository.buscar(numero);
+	}
+
+	@Override
+	public void borrar(String numero) {
+		this.bancariaRepository.eliminar(numero);
+
+	}
+
+	@Override
+	public void isertarCuenta(CuentaBancaria c) {
+		this.bancariaRepository.insertar(c);
+
 	}
 
 }
