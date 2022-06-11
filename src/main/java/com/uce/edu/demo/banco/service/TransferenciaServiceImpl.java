@@ -47,11 +47,7 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 
 	}
 
-	@Override
-	public Transferencia buscarTransferencia(String numeroCtaDestino) {
-		// TODO Auto-generated method stub
-		return this.transferenciaRepository.buscar(numeroCtaDestino);
-	}
+
 
 	@Override
 	public void borrarTransferencia(String numeroCtaDestino) {
@@ -68,6 +64,14 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 		t.setMontoTransferir(monto);
 		t.setFechaTransferencia(LocalDateTime.now());
 		this.transferenciaRepository.actualizar(t);
+	}
+
+
+
+	@Override
+	public Transferencia buscarTransferencia(String numeroCtaDestino) {
+		// TODO Auto-generated method stub
+		return (Transferencia) this.transferenciaRepository.consultar(numeroCtaDestino, LocalDateTime.now(), LocalDateTime.now());
 	}
 
 }
