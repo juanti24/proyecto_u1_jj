@@ -36,16 +36,12 @@ public class DepositoServiceImpl implements IDepositoService {
 
 	@Override
 	public Deposito buscarDeposito(String numeroCtaDestino) {
-		// TODO Auto-generated method stub
-		return this.depositoRepository.buscar(numeroCtaDestino);
-	}
+		Deposito deposito = new Deposito();
+		deposito.setNumeroCuentaDestino(numeroCtaDestino);
 
-	@Override
-	public void borrarDeposito(String numeroCtaDestino) {
-		// TODO Auto-generated method stub
-		this.depositoRepository.eliminar(numeroCtaDestino);
+		return deposito;
 	}
-
+	
 	@Override
 	public void actualizarDeposito(String numeroCtaDestino, BigDecimal monto) {
 		
@@ -56,5 +52,13 @@ public class DepositoServiceImpl implements IDepositoService {
 		this.depositoRepository.actualizar(deposito1);
 
 	}
+
+	@Override
+	public void borrarDeposito(String numeroCtaDestino) {
+		// TODO Auto-generated method stub
+		this.depositoRepository.eliminar(numeroCtaDestino);
+	}
+
+	
 
 }

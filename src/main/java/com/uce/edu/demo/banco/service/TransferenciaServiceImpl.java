@@ -47,17 +47,18 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 
 	}
 
-
-
 	@Override
-	public void borrarTransferencia(String numeroCtaDestino) {
-		// TODO Auto-generated method stub
-		this.transferenciaRepository.eliminar(numeroCtaDestino);
+	public Transferencia buscarTransferencia(String numeroCtaDestino) {
+
+		Transferencia transfer1 = new Transferencia();
+		transfer1.setNumeroCuentaDestino(numeroCtaDestino);
+
+		return transfer1;
 	}
 
 	@Override
 	public void actualizarTransferencia(String ctaOrigen, String ctaDestino, BigDecimal monto) {
-	
+
 		Transferencia t = new Transferencia();
 		t.setNumeroCuentaOrigen(ctaOrigen);
 		t.setNumeroCuentaDestino(ctaDestino);
@@ -66,12 +67,10 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 		this.transferenciaRepository.actualizar(t);
 	}
 
-
-
 	@Override
-	public Transferencia buscarTransferencia(String numeroCtaDestino) {
+	public void borrarTransferencia(String numeroCtaDestino) {
 		// TODO Auto-generated method stub
-		return (Transferencia) this.transferenciaRepository.consultar(numeroCtaDestino, LocalDateTime.now(), LocalDateTime.now());
+		this.transferenciaRepository.eliminar(numeroCtaDestino);
 	}
 
 }

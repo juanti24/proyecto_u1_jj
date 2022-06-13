@@ -12,8 +12,9 @@ public class CuentaBancariaServiceImpl implements ICuentaBancariaService {
 	private ICuentaBancariaRepository bancariaRepository;
 
 	@Override
-	public void actualizarCuenta(CuentaBancaria c) {
-		this.bancariaRepository.actualizar(c);
+	public void isertarCuenta(CuentaBancaria c) {
+		this.bancariaRepository.insertar(c);
+
 	}
 
 	@Override
@@ -23,14 +24,13 @@ public class CuentaBancariaServiceImpl implements ICuentaBancariaService {
 	}
 
 	@Override
-	public void borrar(String numero) {
-		this.bancariaRepository.eliminar(numero);
-
+	public void actualizarCuenta(CuentaBancaria c) {
+		this.bancariaRepository.actualizar(c);
 	}
 
 	@Override
-	public void isertarCuenta(CuentaBancaria c) {
-		this.bancariaRepository.insertar(c);
+	public void borrar(String numero) {
+		this.bancariaRepository.eliminar(numero);
 
 	}
 

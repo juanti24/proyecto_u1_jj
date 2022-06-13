@@ -18,31 +18,29 @@ public class TransferenciaRepositoryImpl implements ITransferenciaRepository {
 	}
 
 	@Override
+	public List<Transferencia> consultar(String cuenta, LocalDateTime fehaInicio, LocalDateTime fehaFianl) {
+		List<Transferencia> listaConsultada = new ArrayList<>();
+
+		Transferencia trans1 = new Transferencia();
+		trans1.setFechaTransferencia(fehaFianl);
+		trans1.setMontoTransferir(new BigDecimal(100));
+		trans1.setNumeroCuentaDestino("1212");
+		trans1.setNumeroCuentaOrigen("1211");
+
+		listaConsultada.add(null);
+		return listaConsultada;
+
+	}
+
+	@Override
 	public void actualizar(Transferencia t) {
 		System.out.println("Se ha actualizado en la base la transferencia: " + t);
 	}
-
-	
 
 	@Override
 	public void eliminar(String numeroCtaDestino) {
 		System.out.println("Transferencia eliminada en la cuenta: " + numeroCtaDestino);
 
-	}
-
-	@Override
-	public List<Transferencia> consultar(String cuenta, LocalDateTime fehaA, LocalDateTime fehaB) {
-		List<Transferencia> listaConsultada= new ArrayList<>();
-		
-		Transferencia trans1 = new Transferencia ();
-		trans1.setFechaTransferencia(fehaB);
-		trans1.setMontoTransferir(new BigDecimal(100));
-		trans1.setNumeroCuentaDestino("1212");
-		trans1.setNumeroCuentaOrigen("1211");
-		
-		listaConsultada.add(null);
-		return listaConsultada;
-		
 	}
 
 }

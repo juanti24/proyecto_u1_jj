@@ -8,9 +8,9 @@ import com.uce.edu.demo.banco.modelo.CuentaBancaria;
 public class CuentaBancariaRepositoryImpl implements ICuentaBancariaRepository {
 
 	@Override
-	public void actualizar(CuentaBancaria c) {
-		// Aqui hay que construir los SQL's
-		System.out.println("Cuenta bancaria actualizada a: " + c);
+	public void insertar(CuentaBancaria c) {
+		// TODO Auto-generated method stub
+		System.out.println("Cuenta bancaria insertada: " + c);
 
 	}
 
@@ -24,9 +24,9 @@ public class CuentaBancariaRepositoryImpl implements ICuentaBancariaRepository {
 	}
 
 	@Override
-	public void insertar(CuentaBancaria c) {
-		// TODO Auto-generated method stub
-		System.out.println("Cuenta bancaria insertada: " + c);
+	public void actualizar(CuentaBancaria c) {
+		// Aqui hay que construir los SQL's
+		System.out.println("Cuenta bancaria actualizada a: " + c);
 
 	}
 

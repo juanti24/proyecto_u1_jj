@@ -9,12 +9,13 @@ public interface ITransferenciaRepository {
 
 	public void insertar(Transferencia t);
 	
-
+	public List<Transferencia> consultar(String cuenta, LocalDateTime fehaInicio, LocalDateTime fehaFinal );
+	
 	public void actualizar(Transferencia t);
 			
 	public void eliminar(String numeroCtaDestino);	
 	
-	public List<Transferencia> consultar(String cuenta, LocalDateTime fehaA, LocalDateTime fehaB );
+	
 
 	
 }
