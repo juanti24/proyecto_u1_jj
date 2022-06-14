@@ -16,10 +16,11 @@ public class CuentaBancariaRepositoryImpl implements ICuentaBancariaRepository {
 
 	@Override
 	public CuentaBancaria buscar(String numero) {
-		System.out.println("Se busca la cuenta bancia: " + numero);
+		System.out.println("Se busca la cuenta bancaria: " + numero);
 		CuentaBancaria cta = new CuentaBancaria();
 		cta.setNumero(numero);
 		cta.setSaldo(new BigDecimal(100));
+		cta.setTipo("c");
 		return cta;
 	}
 

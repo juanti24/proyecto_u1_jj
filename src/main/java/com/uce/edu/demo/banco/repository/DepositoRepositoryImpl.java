@@ -18,6 +18,27 @@ public class DepositoRepositoryImpl implements IDepositoRepository {
 	}
 
 	@Override
+	public Deposito buscar(String numeroCuentaDestino) {
+		// TODO Auto-generated method stub
+		System.out.println("Se ha buscado en la base el deposito con la cuenta de destino: " + numeroCuentaDestino);
+		Deposito d = new Deposito();
+		d.setNumeroCuentaDestino(numeroCuentaDestino);
+		return d;
+	}
+
+	@Override
+	public void actualizar(Deposito d) {
+		// TODO Auto-generated method stub
+		System.out.println("Deposito actualizado: " + d);
+	}
+
+	@Override
+	public void eliminar(String numeroCtaDestino) {
+		System.out.println("Deposito eliminado en la cuenta: " + numeroCtaDestino);
+
+	}
+
+	@Override
 	public List<Deposito> consultar(String cuenta, LocalDateTime fehaInicio, LocalDateTime fehaFin) {
 		List<Deposito> listaDepositos = new ArrayList<>();
 		Deposito depo1 = new Deposito();
@@ -33,18 +54,6 @@ public class DepositoRepositoryImpl implements IDepositoRepository {
 		listaDepositos.add(depo2);
 
 		return listaDepositos;
-	}
-
-	@Override
-	public void actualizar(Deposito d) {
-		// TODO Auto-generated method stub
-		System.out.println("Deposito actualizado: " + d);
-	}
-
-	@Override
-	public void eliminar(String numeroCtaDestino) {
-		System.out.println("Deposito eliminado en la cuenta: " + numeroCtaDestino);
-
 	}
 
 }

@@ -21,14 +21,19 @@ public class TransaccionServiceImpl implements ITransaccionService {
 
 	@Autowired
 	private ITransferenciaService iTransferenciaService;
+	
 	@Autowired
 	private IDepositoService iDepositoService;
+	
 	@Autowired
 	private IRetiroService iRetiroService;
+	
 	@Autowired
 	private ITransferenciaRepository iTransferenciaRepository;
+	
 	@Autowired
 	private IDepositoRepository iDepositoRespository;
+	
 	@Autowired
 	private IRetiroRepository iRetiroRepository;
 
@@ -100,7 +105,7 @@ public class TransaccionServiceImpl implements ITransaccionService {
 		TransaccionTo transaccionTo = new TransaccionTo();
 		transaccionTo.setFecha(retiro.getFecha());
 		transaccionTo.setMonto(retiro.getMonto());
-		transaccionTo.setTipo("D");
+		transaccionTo.setTipo("R");
 		return transaccionTo;
 
 	}

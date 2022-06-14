@@ -8,9 +8,8 @@ public class TransaccionTo {
 	private LocalDateTime fecha;
 	private String tipo;
 	private BigDecimal monto;
-	
-	
-	//SET Y GET
+
+	// SET Y GET
 	public LocalDateTime getFecha() {
 		return fecha;
 	}
@@ -35,6 +34,9 @@ public class TransaccionTo {
 		this.monto = monto;
 	}
 
-	// implements Comparable<LocalDateTime>
+	@Override
+	public String toString() {
+		return "TransaccionTo [fecha=" + fecha + ", tipo=" + tipo + ", monto=" + monto + "]";
+	}
 
 }

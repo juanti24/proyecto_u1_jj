@@ -10,7 +10,7 @@ public interface IDepositoService {
 	
 	public Deposito buscarDeposito(String numeroCtaDestino);
 
-	public void actualizarDeposito(String numeroCtaDestino, BigDecimal monto);
+	public void actualizarDeposito(Deposito d);
 
 	public void borrarDeposito(String numeroCtaDestino);
 }

@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.uce.edu.demo.banco.modelo.CuentaBancaria;
@@ -14,7 +15,9 @@ import com.uce.edu.demo.banco.repository.IDepositoRepository;
 public class DepositoServiceImpl implements IDepositoService {
 
 	@Autowired
+	@Qualifier("ahorros")
 	private ICuentaBancariaService bancariaService;
+
 	@Autowired
 	private IDepositoRepository depositoRepository;
 
@@ -36,20 +39,13 @@ public class DepositoServiceImpl implements IDepositoService {
 
 	@Override
 	public Deposito buscarDeposito(String numeroCtaDestino) {
-		Deposito deposito = new Deposito();
-		deposito.setNumeroCuentaDestino(numeroCtaDestino);
 
-		return deposito;
+		return this.depositoRepository.buscar(numeroCtaDestino);
 	}
-	
+
 	@Override
-	public void actualizarDeposito(String numeroCtaDestino, BigDecimal monto) {
-		
-		Deposito deposito1 = new Deposito();
-		deposito1.setFecha(LocalDateTime.now());
-		deposito1.setNumeroCuentaDestino(numeroCtaDestino);
-		deposito1.setMonto(monto);
-		this.depositoRepository.actualizar(deposito1);
+	public void actualizarDeposito(Deposito d) {
+		this.depositoRepository.actualizar(d);
 
 	}
 
@@ -58,7 +54,5 @@ public class DepositoServiceImpl implements IDepositoService {
 		// TODO Auto-generated method stub
 		this.depositoRepository.eliminar(numeroCtaDestino);
 	}
-
-	
 
 }

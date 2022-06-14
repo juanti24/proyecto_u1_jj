@@ -18,17 +18,12 @@ public class TransferenciaRepositoryImpl implements ITransferenciaRepository {
 	}
 
 	@Override
-	public List<Transferencia> consultar(String cuenta, LocalDateTime fehaInicio, LocalDateTime fehaFianl) {
-		List<Transferencia> listaConsultada = new ArrayList<>();
+	public Transferencia buscar(String numeroCuentaOrigen) {
+		System.out.println("Se ha buscado la transferencia con la cuenta de origen: " + numeroCuentaOrigen);
+		Transferencia t = new Transferencia();
+		t.setNumeroCuentaOrigen(numeroCuentaOrigen);
 
-		Transferencia trans1 = new Transferencia();
-		trans1.setFechaTransferencia(fehaFianl);
-		trans1.setMontoTransferir(new BigDecimal(100));
-		trans1.setNumeroCuentaDestino("1212");
-		trans1.setNumeroCuentaOrigen("1211");
-
-		listaConsultada.add(null);
-		return listaConsultada;
+		return t;
 
 	}
 
@@ -40,6 +35,21 @@ public class TransferenciaRepositoryImpl implements ITransferenciaRepository {
 	@Override
 	public void eliminar(String numeroCtaDestino) {
 		System.out.println("Transferencia eliminada en la cuenta: " + numeroCtaDestino);
+
+	}
+
+	@Override
+	public List<Transferencia> consultar(String cuenta, LocalDateTime fehaInicio, LocalDateTime fehaFianl) {
+		List<Transferencia> listaConsultada = new ArrayList<>();
+
+		Transferencia trans1 = new Transferencia();
+		trans1.setFechaTransferencia(fehaFianl);
+		trans1.setMontoTransferir(new BigDecimal(100));
+		trans1.setNumeroCuentaDestino("1212");
+		trans1.setNumeroCuentaOrigen("1211");
+
+		listaConsultada.add(null);
+		return listaConsultada;
 
 	}
 

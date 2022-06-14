@@ -8,11 +8,13 @@ public interface IDepositoRepository {
 	
 	public void insertarDeposito(Deposito d);
 	
-	public List<Deposito> consultar(String cuenta, LocalDateTime fehaInicio, LocalDateTime fehaFin);
+	public Deposito buscar(String numeroCuentaDestino);
 	
 	public void actualizar(Deposito d);
 	
 	public void eliminar(String numeroCtaDestino);	
+	
+	public List<Deposito> consultar(String cuenta, LocalDateTime fehaInicio, LocalDateTime fehaFin);
 	
 	
 }
