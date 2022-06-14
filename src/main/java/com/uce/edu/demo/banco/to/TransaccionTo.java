@@ -8,7 +8,9 @@ public class TransaccionTo {
 	private LocalDateTime fecha;
 	private String tipo;
 	private BigDecimal monto;
-
+	
+	
+	//SET Y GET
 	public LocalDateTime getFecha() {
 		return fecha;
 	}

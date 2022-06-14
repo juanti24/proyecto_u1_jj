@@ -54,13 +54,12 @@ public class GestorInventarioSeriviceImpl implements IGestorInventarioService {
 		return precioFinal ;
 	}
 
-	private List<InventarioTo> inventario(LocalDateTime desde) {
+	private List<InventarioTo> inventario(LocalDateTime fecha) {
 
 		List<Producto> listaProductos = this.iInventarioService.consultar().getListaProductos();;
-		this.iInventarioService.consultar().getListaProductos();
 		List<InventarioTo> listaInventario = new ArrayList<>();
 		for (Producto p : listaProductos) {
-			if (p.getFechaIngresoBodega().isAfter(desde)) {
+			if (p.getFechaIngresoBodega().isAfter(fecha)) {
 				InventarioTo i = new InventarioTo();
 				i.setCantidad(p.getCantidad());
 				i.setFechaIngresoBodega(p.getFechaIngresoBodega());

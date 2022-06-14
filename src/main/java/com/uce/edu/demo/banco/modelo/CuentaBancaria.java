@@ -6,6 +6,7 @@ public class CuentaBancaria {
 
 	private String numero;
 	private BigDecimal saldo;
+	private String tipo;
 
 	// SET Y GET
 	public String getNumero() {
@@ -24,9 +25,17 @@ public class CuentaBancaria {
 		this.saldo = saldo;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 	@Override
 	public String toString() {
-		return "CuentaBancaria [numero=" + numero + ", saldo=" + saldo + "]";
+		return "CuentaBancaria [numero=" + numero + ", saldo=" + saldo + ", tipo=" + tipo + "]";
 	}
 
 }

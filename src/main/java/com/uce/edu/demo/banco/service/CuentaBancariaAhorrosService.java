@@ -1,45 +1,52 @@
 package com.uce.edu.demo.banco.service;
 
 import java.math.BigDecimal;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import com.uce.edu.demo.banco.modelo.CuentaBancaria;
 import com.uce.edu.demo.banco.repository.ICuentaBancariaRepository;
 
 @Service
-public class CuentaBancariaServiceImpl implements ICuentaBancariaService {
+@Qualifier("ahorros")
+public class CuentaBancariaAhorrosService implements ICuentaBancariaService {
 
 	@Autowired
-	private ICuentaBancariaRepository bancariaRepository;
+	private ICuentaBancariaRepository iCuentaBancariaRepository;
 
 	@Override
 	public void isertarCuenta(CuentaBancaria c) {
-		this.bancariaRepository.insertar(c);
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public CuentaBancaria buscar(String numero) {
 		// TODO Auto-generated method stub
-		return this.bancariaRepository.buscar(numero);
+		return null;
 	}
 
 	@Override
 	public void actualizarCuenta(CuentaBancaria c) {
-		this.bancariaRepository.actualizar(c);
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public void borrar(String numero) {
-		this.bancariaRepository.eliminar(numero);
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public BigDecimal calcularInteres(String numeroCta, BigDecimal saldo) {
 		// TODO Auto-generated method stub
-		return null;
+		// Codigo duplicado lo solucionamos con una fachada
+		// CuentaBancaria cta = this.iCuentaBancariaRepository.buscar(numeroCta);
+		BigDecimal interes = new BigDecimal(560).multiply(new BigDecimal(15).divide(new BigDecimal(20)));
+		interes = interes.add((saldo.divide(new BigDecimal(100))));
+
+		return interes;
 	}
 
 }
