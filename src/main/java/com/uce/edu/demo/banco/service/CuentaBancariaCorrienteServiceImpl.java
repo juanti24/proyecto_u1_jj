@@ -39,6 +39,8 @@ public class CuentaBancariaCorrienteServiceImpl implements ICuentaBancariaServic
 		// TODO Auto-generated method stub
 		// Codigo duplicado lo solucionamos con una fachada
 		// CuentaBancaria cta = this.iCuentaBancariaRepository.buscar(numeroCta);
+		//Se puede pasar directamente el Objeto siempre y cuanto ocupe uno o pocos
+		// atributos del objeto 
 
 		BigDecimal interes = saldo.multiply(new BigDecimal(0.15));
 
